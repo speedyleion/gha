@@ -18,6 +18,7 @@ jobs:
 
   size-label:
     runs-on: ubuntu-22.04
+    if: ${{ github.event_name == 'pull_request' }}
     permissions:
       pull-requests: write
     steps:
