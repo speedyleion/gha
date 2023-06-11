@@ -44,7 +44,7 @@ jobs:
         uses: actions/cache@v3
         with:
           path: |
-            ./llvm
+            ./llvm/libclang.so
           key: llvm-16
       - name: Install LLVM and Clang
         uses: KyleMayes/install-llvm-action@v1
@@ -59,4 +59,4 @@ jobs:
           echo "The env version ${{ env.LLVM_PATH }}"
           echo "The bash version $LLVM_PATH"
           "[ -e /usr/lib/x86_64-linux-gnu/libclang-16.so ]"
-        working-directory: ${{ env.LLVM_PATH }}
+        working-directory: ${{ env.LLVM_PATH }}/lib
