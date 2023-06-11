@@ -55,5 +55,7 @@ jobs:
         run: |
           sudo ln -s libclang.so /usr/lib/x86_64-linux-gnu/libclang-16.so
           ls -la
+          echo "The env version ${{ env.LLVM_PATH }}"
+          echo "The bash version ${{ LLVM_PATH }}"
           "[ -e /usr/lib/x86_64-linux-gnu/libclang-16.so ]"
         working-directory: ${{ env.LLVM_PATH }}
