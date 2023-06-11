@@ -54,5 +54,5 @@ jobs:
       - name: Symlink libclang.so
         run: |
           sudo ln -s libclang-16.so.1 /usr/lib/x86_64-linux-gnu/libclang-16.so
-          sudo find / -name libclang-16*
+          tree .
         working-directory: ${{ env.LLVM_PATH }}/lib
