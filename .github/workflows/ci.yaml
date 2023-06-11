@@ -8,7 +8,7 @@ on:
 
 jobs:
   markdown-lint:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
       - uses: xt0rted/markdownlint-problem-matcher@v1
@@ -17,7 +17,7 @@ jobs:
           globs: "**/*.md"
 
   size-label:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
     if: ${{ github.event_name == 'pull_request' }}
     permissions:
       pull-requests: write
@@ -35,3 +35,11 @@ jobs:
               "500": "XL",
               "1000": "XXL"
             }
+  clang:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Symlink libclang.so
+        run: find / -name libclang*
+        run: sudo ln -s libclang-16.so.1 /usr/lib/x86_64-linux-gnu/libclang-16.so
+        working-directory: ${{ env.LLVM_PATH }}/lib
