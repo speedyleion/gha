@@ -40,6 +40,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Symlink libclang.so
-        run: find / -name libclang*
-        run: sudo ln -s libclang-16.so.1 /usr/lib/x86_64-linux-gnu/libclang-16.so
+        run: |
+          find / -name libclang*
+          sudo ln -s libclang-16.so.1 /usr/lib/x86_64-linux-gnu/libclang-16.so
         working-directory: ${{ env.LLVM_PATH }}/lib
