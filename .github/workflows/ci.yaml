@@ -53,7 +53,7 @@ jobs:
           cached: ${{ steps.cache-llvm.outputs.cache-hit }}
       - name: Symlink libclang.so
         run: |
-          sudo ln -s libclang.so /usr/lib/x86_64-linux-gnu/libclang-16.so
+          sudo ln -s ./libclang.so /usr/lib/x86_64-linux-gnu/libclang-16.so
           ls -la /usr/lib/x86_64-linux-gnu
           # "[ -e /usr/lib/x86_64-linux-gnu/libclang-16.so ]"
         working-directory: ${{ env.LLVM_PATH }}/lib
